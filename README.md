@@ -40,23 +40,18 @@ import matplotlib.pyplot as plt
 
 
 # Create the Text using cv2.putText
-img1 = np.zeros((100,270), dtype = 'uint8')
+img1 = np.zeros((100,350), dtype = 'uint8')
 font = cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img1,'aakaash',(5,70), font, 2,(255),5,cv2.LINE_AA)
+cv2.putText(img1,'swe_murali',(5,70), font, 2,(255),5,cv2.LINE_AA)
 plt.imshow(img1,'gray')
 
 
-# Create the structuring element
-cv2.erode(img1, kernel)
-kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(7,7))
-
-
-
-
 # Erode the image
-
-image_erode1 = cv2.erode(img1,kernel)
+kernel=np.ones((5,5),np.uint8)
+kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(7,7))
+image_erode1=cv2.erode(img1, kernel)
 plt.imshow(image_erode1, 'gray')
+
 
 
 
@@ -64,6 +59,7 @@ plt.imshow(image_erode1, 'gray')
 
 image_dilate1 = cv2.dilate(img1, kernel)
 plt.imshow(image_dilate1, 'gray')
+
 ```
 ## Output:
 
